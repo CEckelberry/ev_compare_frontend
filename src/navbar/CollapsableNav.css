@@ -1,0 +1,13 @@
+#logo {
+	width: 285px !important;
+	background-size: contain;
+	pointer-events: none;
+}
+
+#navLinks {
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+}
