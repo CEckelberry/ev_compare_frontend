@@ -34,8 +34,10 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
   /** Get the current user. */
 
-  static async getCurrentUser(username) {
-    let res = await this.request(`users/${username}`);
+  static async getCurrentUser(googleid) {
+    // console.log(`in getCurrentUser function, goolgeid:${googleid}`)
+    let res = await this.request(`users/${googleid}`);
+    // console.log(`res.user: ${res.user}`)
     return res.user;
   }
   
@@ -53,13 +55,16 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
   /** Get token for login from username, password. */
   static async login(data) {
-    let res = await this.request(`auth/token`, data, "post");
+    // console.log(`in login function`)
+    // console.log(`data for login: ${data}`)
+    let res = await this.request(`auth/token`, {"googleid": data}, "post");
     return res.token;
   }
 
   /** Signup for site. */
   static async signup(data) {
-    let res = await this.request(`auth/register`, data, "post");
+    // console.log(`in signup function`)
+    let res = await this.request(`auth/google`, data, "post");
     return res.token;
   }
 

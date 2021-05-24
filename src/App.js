@@ -1,12 +1,10 @@
 import React, { useState, useEffect  } from "react";
 import './App.css';
-import CollapsableNav from './navbar/CollapsableNav'
 import Routes from "./Routes/Routes";
 import UserContext from "./auth/UserContext";
 import useLocalStorage from "./hooks/useLocalStorage"
 import jwt from "jsonwebtoken";
 import LoadingSpinner from "./common/LoadingSpinner";
-import { Box, Grommet, Grid } from 'grommet';
 import EVApi from "./api/api"
 
 export const TOKEN_STORAGE_ID = "jobly-token";
@@ -62,10 +60,11 @@ function App() {
     async function getCurrentUser() {
       if (token) {
         try {
-          let { username } = jwt.decode(token);
+          console.log("in getCurrentUser function App.js")
+          let { googleid } = jwt.decode(token);
           // put the token on the Api class so it can use it to call the API.
           EVApi.token = token;
-          let currentUser = await EVApi.getCurrentUser(username);
+          let currentUser = await EVApi.getCurrentUser(googleid);
           setCurrentUser(currentUser);
           // setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
@@ -88,7 +87,7 @@ function App() {
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser,}}>
       <div className="App">
-        <Routes />
+        <Routes login={login} signup={signup} />
       </div>
     </UserContext.Provider>
   );

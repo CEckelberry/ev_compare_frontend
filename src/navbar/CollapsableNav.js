@@ -1,9 +1,9 @@
 import React from 'react';
 import './CollapsableNav.css'
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import logo from '../images/logo_EVCompare/png/white_transparent_logo.png'
 import { Menu as MenuIcon } from 'grommet-icons';
-import {Anchor, Box, Grommet, Header, Nav, Menu, ResponsiveContext, Image} from 'grommet';
+import {Anchor, Box, Grommet, Header, Nav, Menu, ResponsiveContext, Image, Button} from 'grommet';
 import Avatar from './Avatar'
 
 const theme = {
@@ -45,11 +45,11 @@ const CollapsableNav = () => (
             />
           ) : (
             <Nav direction="row" id="navLinks">
-              <Link to="/evs"><Anchor color="#EDEDED" href="evlist" label="EVList" /></Link>
-              <Link to="/evs/compare"><Anchor color="#EDEDED" href="#" label="Compare"/></Link>
-              <Link to="/favorites"><Anchor color="#EDEDED" href="#" label="Favorites"/></Link>
-              <Link to="/aboutus"><Anchor color="#EDEDED" href="#" label="About Us"/></Link>
-              <Link to="/profile"><Anchor href="EDEDED" id="profAnchor"><Avatar id="profAvatar"></Avatar></Anchor></Link>  
+              <NavLink id="RouterNavLink" className="RouterNavLink" to="/evs" label="evs" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}}>EVList</NavLink>
+              <NavLink id="RouterNavLink"  to="/evs/compare" label="Compare" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>Compare</NavLink>
+              <NavLink id="RouterNavLink"  to="/favorites" label="favorites" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>Favorites</NavLink>
+              <NavLink id="RouterNavLink"  to="/aboutus" label="About Us" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>About Us</NavLink>
+              <Link to="/profile"><Avatar id="profAvatar"></Avatar></Link>  
             </Nav>
           )
         }

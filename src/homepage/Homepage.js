@@ -29,7 +29,7 @@ import CollapsableNav from "../navbar/CollapsableNav";
 
 function Homepage() {
   const { currentUser } = useContext(UserContext);
-  console.debug("Homepage", "currentUser=", currentUser);
+  //console.debug("Homepage", "currentUser=", currentUser);
 
   const theme = {
     global: {
@@ -52,16 +52,51 @@ function Homepage() {
               <Grommet background="#F8F8F8" theme={theme}>
                 <Grid
                     fill
-                    rows={{count: 6, size: 'auto'}}
                     columns={{count: 'fit', size: 'full'}}
                 >
 
                         {currentUser
-                            ? <Box justify="center" direction="row">
-                                    <Text size='3xl'>
-                                    Welcome Back, {currentUser.firstName || currentUser.username}!
+                            ? 
+                            <div>
+                            <Box height={{ min: '475px' }} justify="center" width={{min:' 250px' }}direction="row" align="center" fit='contain' pad="large" background={{image: `url(${cityIllustration}) `, opacity: 'strong', }}>
+                                <Box elevation="medium" width="large" height="small" background="#7D4CDB" align="center" round="small">
+                                    <Text size='6xl'>
+                                        Welcome Back {currentUser.firstName || currentUser.username}!
                                     </Text> 
                                 </Box>
+                            </Box>
+                            <Box direction="row" justify="center">
+                                <Heading size="medium" margin="3%">EVCompare is now yours to explore! Have fun comparing those electric vehicles!</Heading>
+                            </Box>
+                            <Box direction="row" background="#white" gap="small" justify="center">
+                                <Box height="small" width="small">
+                                    <Image src={ford}  fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={tesla} fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={nio} fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={nissan} fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={rivian} fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={vw}  fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={gm}  fit="contain"></Image>
+                                </Box>
+                                <Box height="small" width="small">
+                                    <Image src={volvo}  fit="contain"></Image>
+                                </Box>
+                            </Box>
+
+                            </div>
+
                             : (
                             <>  
                                 <div>

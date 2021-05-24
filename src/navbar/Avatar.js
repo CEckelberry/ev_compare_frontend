@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Avatar, Grommet } from 'grommet';
+import UserContext from "../auth/UserContext";
 
 export const ProfAvatar = () => {
 
+  const { currentUser } = useContext(UserContext);
+
   return (
-    <Grommet>
-        <Avatar background="#6FFFB0">SY</Avatar>
-    </Grommet>
+    
+    currentUser 
+      ? 
+      <Grommet>
+        <Avatar src={currentUser.profile_image}>SY</Avatar>
+      </Grommet>
+      
+      : (
+        
+        <Grommet>
+          <Avatar background="#6FFFB0">SY</Avatar>
+        </Grommet>
+      )
+
+    
+
+
+
   );
 };
 

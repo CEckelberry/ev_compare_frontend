@@ -1,9 +1,11 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import Homepage from "../homepage/Homepage"
-import Aboutus from "../aboutus/Aboutus"
-import LoginForm from "../auth/LoginForm"
+import Homepage from "../homepage/Homepage";
+import Aboutus from "../aboutus/Aboutus";
+import LoginForm from "../auth/LoginForm";
+import SignupForm from "../auth/SignupForm";
+import FinishLogin from "../auth/FinishLogin"
 
 function Routes({ login, signup }){
     console.debug(
@@ -17,8 +19,9 @@ function Routes({ login, signup }){
             <Switch>
                 <Route exact path="/"><Homepage /></Route>
                 <Route exact path="/login"><LoginForm /></Route>
-                <Route exact path="/signup"></Route>
+                <Route exact path="/signup"><SignupForm /></Route>
                 <Route exact path="/aboutus"><Aboutus /></Route>
+                <Route exact path="/finishlogin"><FinishLogin login={login}/></Route>
 
 
                 <PrivateRoute exact path="/addev"></PrivateRoute>
@@ -26,9 +29,9 @@ function Routes({ login, signup }){
                 <PrivateRoute exact path="/evs/"> </PrivateRoute>
                 <PrivateRoute exact path="/evs/:id"> </PrivateRoute>
                 <PrivateRoute exact path="/evs/compare"> </PrivateRoute>
-                <PrivateRoute exact path="/profile"></PrivateRoute>
+                <PrivateRoute exact path="/favorites"> </PrivateRoute>
 
-                {/* <Redirect to="/"/> */}
+                <Redirect to="/"/>
             </Switch>
         </div>
     )

@@ -11,7 +11,7 @@ const Logo = () => (
       align="center"
       justify="center"
       margin={{top: "-10%", bottom: "-10%"}}
-    ><Image fit="none" src={logo}></Image></Box>
+    ><Image fit="cover" src={logo}></Image></Box>
   </Stack>
 );
 

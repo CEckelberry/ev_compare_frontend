@@ -1,8 +1,8 @@
-import React, { useContext, useReducer, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import CollapsableNav from "../navbar/CollapsableNav";
 import {Footer} from "../footer/Footer";
-import { Grommet, Box, Button, Grid, Text, Image, grommet, Heading, Diagram, Stack} from 'grommet';
+import { Grommet, Box, Button, Grid, Image, Heading} from 'grommet';
 import UserContext from "../auth/UserContext";
 import windmillsSolar from "../images/windmills_solar.jpg";
 import lightBulb from "../images/newlights.jpg";
