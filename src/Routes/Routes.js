@@ -5,7 +5,9 @@ import Homepage from "../homepage/Homepage";
 import Aboutus from "../aboutus/Aboutus";
 import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignupForm";
-import FinishLogin from "../auth/FinishLogin"
+import FinishLogin from "../auth/FinishLogin";
+import EVList from "../evs/EvList";
+import FavoriteList from "../favorites/FavoriteList";
 
 function Routes({ login, signup }){
     console.debug(
@@ -26,10 +28,10 @@ function Routes({ login, signup }){
 
                 <PrivateRoute exact path="/addev"></PrivateRoute>
                 <PrivateRoute exact path="/profile"></PrivateRoute>
-                <PrivateRoute exact path="/evs/"> </PrivateRoute>
+                <PrivateRoute exact path="/evs/"><EVList /></PrivateRoute>
                 <PrivateRoute exact path="/evs/:id"> </PrivateRoute>
                 <PrivateRoute exact path="/evs/compare"> </PrivateRoute>
-                <PrivateRoute exact path="/favorites"> </PrivateRoute>
+                <PrivateRoute exact path="/favorites"><FavoriteList /> </PrivateRoute>
 
                 <Redirect to="/"/>
             </Switch>

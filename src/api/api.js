@@ -37,13 +37,13 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
   static async getCurrentUser(googleid) {
     // console.log(`in getCurrentUser function, goolgeid:${googleid}`)
     let res = await this.request(`users/${googleid}`);
-    // console.log(`res.user: ${res.user}`)
+    console.log(`res.user: ${res.user}`)
     return res.user;
   }
   
-  /** Get companies (filtered by name if not undefined) */
-  static async getEVs(name) {
-    let res = await this.request("evs", { name });
+  /** Get evs (filtered by term if not undefined) */
+  static async getEVs(make, model, price, range, body_type) {
+    let res = await this.request("evs", {make, model, price, range, body_type});
     return res.evs;
   }
 
@@ -72,6 +72,22 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
   static async saveProfile(username, data) {
     let res = await this.request(`users/${username}`, data, "patch");
     return res.user;
+  }
+
+  /** Add EV to Favorites*/
+  static async addToFavorites(googleid, vehicle_id) {
+    await this.request(`users/${googleid}/evs/${vehicle_id}`, {}, "post");
+  }
+
+  /** Remove EV from Favorites*/
+  static async removeFavorite(googleid, vehicle_id) {
+    await this.request(`users/${googleid}/evs/${vehicle_id}`, {}, "delete");
+  }
+
+  static async getFavorites(googleid) {
+    let res = await this.request(`users/${googleid}/favorites`);
+    console.log(`in getFavorites(googleid), res of favorites: ${res}`)
+    return Array.from(res)
   }
 
  }

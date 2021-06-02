@@ -1,0 +1,14 @@
+#evlistbackground {
+	background-image: url("../images/ev_list_background.jpg");
+	opacity: 10;
+}
+
+#submitbutton {
+	text-align: center;
+	padding-left: 0px;
+	font-weight: bold;
+}
+
+#filterform {
+	width: 100%;
+}

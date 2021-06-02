@@ -59,9 +59,9 @@ function Homepage() {
                             ? 
                             <div>
                             <Box height={{ min: '475px' }} justify="center" width={{min:' 250px' }}direction="row" align="center" fit='contain' pad="large" background={{image: `url(${cityIllustration}) `, opacity: 'strong', }}>
-                                <Box elevation="medium" width="large" height="small" background="#7D4CDB" align="center" round="small">
-                                    <Text size='6xl'>
-                                        Welcome Back {currentUser.firstName || currentUser.username}!
+                                <Box elevation="medium" background="#7D4CDB" align="center" round="small">
+                                    <Text size='5xl' margin="small">
+                                        Welcome Back, {currentUser.firstName || currentUser.username}!
                                     </Text> 
                                 </Box>
                             </Box>

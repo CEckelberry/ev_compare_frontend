@@ -36,20 +36,30 @@ const CollapsableNav = () => (
           responsive === 'small' ? (
             <Menu
               icon={<MenuIcon />}
-              items={[
-                { label: 'CompareList', onClick: () => {} },
-                { label: 'Favorites', onClick: () => {} },
-                { label: 'Profile', onClick: () => {}},
-                { label: 'About Us', onClick: () => {}},
+              items={[ 
+                { label: 'EVList', onClick: () => {} , href: "/evs"},
+                { label: 'Favorites', onClick: () => {}, href: "/favorites" },
+                { label: 'CompareList', onClick: () => {} , href: "/evs/compare"},
+                { label: 'Profile', onClick: () => {}, href: "/profile"},
+                { label: 'AboutUs', onClick: () => {}, href: "/aboutus"},
+                { label: 'Logout', onClick: () => {}, href: "/logout"},
               ]}
+              margin="small"
+              dropBackground="#6FFFB0"
             />
           ) : (
             <Nav direction="row" id="navLinks">
               <NavLink id="RouterNavLink" className="RouterNavLink" to="/evs" label="evs" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}}>EVList</NavLink>
               <NavLink id="RouterNavLink"  to="/evs/compare" label="Compare" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>Compare</NavLink>
               <NavLink id="RouterNavLink"  to="/favorites" label="favorites" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>Favorites</NavLink>
-              <NavLink id="RouterNavLink"  to="/aboutus" label="About Us" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>About Us</NavLink>
-              <Link to="/profile"><Avatar id="profAvatar"></Avatar></Link>  
+              <NavLink id="RouterNavLink"  to="/aboutus" label="About Us" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>About&nbsp;Us</NavLink>
+              <Menu 
+              items={[ {label: 'Profile', onClick: () => {} , href: "/profile",},
+                       {label: 'Logout', onClick: () => {} , href: "/logout",}
+              ]}
+              margin={{right: "30%",}}
+              dropAlign={{left: "left", top: "top"}}
+              dropBackground="#6FFFB0"><Avatar id="profAvatar"></Avatar></Menu>
             </Nav>
           )
         }

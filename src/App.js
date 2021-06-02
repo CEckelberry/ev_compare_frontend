@@ -12,6 +12,7 @@ export const TOKEN_STORAGE_ID = "jobly-token";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
+  const [favIds, setfavIds] = useState(new Set([]));
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
@@ -49,7 +50,7 @@ function App() {
     }
   }
 
-  
+ 
   // Load user info from API. Until a user is logged in and they have a token,
   // this should not run. It only needs to re-run when a user logs out, so
   // the value of the token is a dependency for this effect.
@@ -65,6 +66,7 @@ function App() {
           // put the token on the Api class so it can use it to call the API.
           EVApi.token = token;
           let currentUser = await EVApi.getCurrentUser(googleid);
+          console.log(`currentUser: ${currentUser}`)
           setCurrentUser(currentUser);
           // setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
@@ -85,7 +87,7 @@ function App() {
   if (!infoLoaded) return <LoadingSpinner />
 
   return (
-    <UserContext.Provider value={{ currentUser, setCurrentUser,}}>
+    <UserContext.Provider value={{ currentUser, setCurrentUser}}>
       <div className="App">
         <Routes login={login} signup={signup} />
       </div>

@@ -1,0 +1,32 @@
+.EVlink:visited {
+	text-decoration: none !important;
+	cursor: auto;
+	color: #f8f8f8;
+}
+
+.EVlink {
+	text-decoration: none !important;
+	cursor: auto;
+	color: #f8f8f8;
+}
+
+.EVlink:hover {
+	cursor: pointer;
+	color: #f8f8f8;
+}
+
+#carbutton {
+	width: 100%;
+	font-size: larger;
+	font-weight: bold;
+}
+
+#stars {
+	margin-bottom: -1.5%;
+}
+
+span {
+	padding-left: 10px; /* apply the needed vertical margins */
+	font-variant: inherit;
+	font-weight: 500;
+}
