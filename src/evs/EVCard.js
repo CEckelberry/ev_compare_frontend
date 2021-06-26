@@ -98,7 +98,7 @@ function EVCard({vehicle_id, make, model, safety_rating, length, width, height, 
             <Link className="EVlink" to={`/evs/${vehicle_id}`} onClick={() => {}}><Button id="carbutton" fill="vertical" hoverIndicator={{elevation: "medium"}} primary style={{background: "#7D4CDB"}} label={`${make} ${model}`} size="large" margin={{bottom: "small"}}></Button></Link>
             <Heading id="cardstats" alignSelf="start" level="3" margin="small" size="medium">Year:  <span>{year}</span></Heading>
             <Heading id="cardstats" alignSelf="start" level="3" margin="small" size="medium">Body Type: <span>{body_type}</span></Heading>
-            <Heading id="cardstats" alignSelf="start" level="3" margin="small" size="medium">Max Range: <span>{range}</span></Heading>
+            <Heading id="cardstats" alignSelf="start" level="3" margin="small" size="medium">Min Range: <span>{range}</span></Heading>
             <Heading id="cardstats" alignSelf="start" level="3" margin="small" size="medium">Min Price: <span>{price}</span></Heading>
             <Heading id="cardstats" alignSelf="start" level="3" margin="small" size="medium">Safety: <span>{[...Array(safety_rating)].map((e, i) => <Star id="stars" key={i} size="medium"/>)}</span></Heading>
             </Box>

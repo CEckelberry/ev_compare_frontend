@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import EVApi from "../api/api";
 import SearchForm from "../common/SearchForm";
-import {NavLink} from 'react-router-dom';
+import {useParams, useLocation} from "react-router-dom"
 import LoadingSpinner from "../common/LoadingSpinner";
-import { Grommet, Box, Button, Grid, Text, ResponsiveContext, Form, Select, RangeSelector, Stack, FormField} from 'grommet';
+import { Grommet, Box, Button, Grid, Text, ResponsiveContext,} from 'grommet';
 import EVCard from "./EVCard"
 import "./EVList.css"
 import background from "../images/ev_list_background.jpg"
 import UserContext from "../auth/UserContext";
-import { Star } from "grommet-icons";
+import { SearchAdvanced, Star } from "grommet-icons";
 import FormLayer from "../filters/FormLayer"
+import queryString from 'query-string';
 
 
 /** Show page with list of evs.
@@ -26,8 +27,16 @@ import FormLayer from "../filters/FormLayer"
 
 function EVList(){
     console.debug("EVList")
+    // let {make} = useParams();
+    // let {model} = useParams();
+    // let {price} = useParams();
+    // let {range} = useParams();
+    // let {body_type} = useParams();
 
-
+    const searchQuery = useLocation();
+    console.log(searchQuery)
+    const {make, model, price, range, body_type} = queryString.parse(searchQuery.search)
+    console.log(make, model, price, range, body_type)
 
     const { currentUser } = useContext(UserContext);
     const [evs, setEVs] = useState(null);
@@ -46,13 +55,16 @@ function EVList(){
       }, []);
 
     /** Triggered by search form submit; reloads evs. */
-    async function search(make, model, price, range, body_type) {
+    async function search() {
+       
+        console.log('inside async function search,,,,,, make: ', make)
         let evs = await EVApi.getEVs(make, model, price, range, body_type);
         setEVs(evs);
     }
 
     if (!evs) return <Box pad={{bottom: "20%"}}><LoadingSpinner /></Box>;
 
+    console.log(evs)
 
     const theme = {
         global: {

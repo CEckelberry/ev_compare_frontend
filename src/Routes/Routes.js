@@ -8,6 +8,8 @@ import SignupForm from "../auth/SignupForm";
 import FinishLogin from "../auth/FinishLogin";
 import EVList from "../evs/EvList";
 import FavoriteList from "../favorites/FavoriteList";
+import Profile from "../profiles/Profile"
+import EV from "../evs/EV"
 
 function Routes({ login, signup }){
     console.debug(
@@ -27,10 +29,10 @@ function Routes({ login, signup }){
 
 
                 <PrivateRoute exact path="/addev"></PrivateRoute>
-                <PrivateRoute exact path="/profile"></PrivateRoute>
+                <PrivateRoute exact path="/profile"><Profile /></PrivateRoute>
                 <PrivateRoute exact path="/evs/"><EVList /></PrivateRoute>
-                <PrivateRoute exact path="/evs/:id"> </PrivateRoute>
-                <PrivateRoute exact path="/evs/compare"> </PrivateRoute>
+                <PrivateRoute exact path="/evs/:id"><EV /></PrivateRoute>
+                <PrivateRoute exact path="/evs/compare"></PrivateRoute>
                 <PrivateRoute exact path="/favorites"><FavoriteList /> </PrivateRoute>
 
                 <Redirect to="/"/>

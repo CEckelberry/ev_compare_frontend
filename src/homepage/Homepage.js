@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Homepage.css";
 import UserContext from "../auth/UserContext";
-import {Footer} from "../footer/Footer";
 import cityIllustration from '../images/city_illustration.jpg';
 
 import ford from '../images/evlogos/ford.png';
@@ -16,7 +15,6 @@ import volvo from '../images/evlogos/volvo.png'
 
 import { Grommet, Box, Button, Grid, Text, Image, Heading } from 'grommet';
 import { User } from 'grommet-icons';
-import CollapsableNav from "../navbar/CollapsableNav";
 
 /** Homepage of site.
  *
@@ -48,7 +46,6 @@ function Homepage() {
   return (
 
       <div className="Homepage">
-              <CollapsableNav />
               <Grommet background="#F8F8F8" theme={theme}>
                 <Grid
                     fill
@@ -144,7 +141,6 @@ function Homepage() {
                             )}
                 </Grid>
         </Grommet>
-        <Footer/>
       </div>
   );
 }

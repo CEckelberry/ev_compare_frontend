@@ -75,9 +75,6 @@ function FavoriteList(){
     return(
         <Box background={{image: `url(${background}) `, opacity: "weak"}}>
         <Grommet  theme={theme}>
-            <Box direction="row"  align="center" justify="center">
-                    <SearchForm searchFor={search}/>
-            </Box>
             <Grid columns={size !== 'medium' ? 'medium' : '100%'} gap="small" justify="center">
                     {evs.length
                         ? (

@@ -6,6 +6,8 @@ import useLocalStorage from "./hooks/useLocalStorage"
 import jwt from "jsonwebtoken";
 import LoadingSpinner from "./common/LoadingSpinner";
 import EVApi from "./api/api"
+import CollapsableNav from "./navbar/CollapsableNav";
+import {Footer} from "./footer/Footer";
 
 export const TOKEN_STORAGE_ID = "jobly-token";
 
@@ -89,7 +91,9 @@ function App() {
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser}}>
       <div className="App">
+        <CollapsableNav logout={logout}></CollapsableNav>
         <Routes login={login} signup={signup} />
+        <Footer />
       </div>
     </UserContext.Provider>
   );

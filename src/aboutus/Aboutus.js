@@ -8,6 +8,8 @@ import windmillsSolar from "../images/windmills_solar.jpg";
 import lightBulb from "../images/newlights.jpg";
 import evIllustration from "../images/ev_illustration.jpg";
 import windmills from "../images/windmills.jpg";
+import gas from "../images/gas.jpg";
+import "./Aboutus.css"
 
 import downArrow from "../images/down-arrow.png";
 
@@ -31,7 +33,6 @@ function Aboutus() {
 
     return(
         <div>
-        <CollapsableNav />
         <Grommet>
             <Grid>
                 <Box height={{ min: '475px' }} width={{min:' 250px' }} direction="row" background={{image: `url(${windmillsSolar}) `, opacity: 'weak'}} justify="center" margin="medium">
@@ -70,10 +71,14 @@ function Aboutus() {
                         </Box>
                     </Box>
                 </Box>
+                <Box id="finalimage" height={{ min: '505px' }} width={{min:' 250px' }} direction="row" background={{image: `url(${gas}) `, opacity: 'weak'}} justify="center">
+                    <Box background="##F8F8F8" align="center" pad="none" margin="medium" >
+                        <Heading size="large" color="#333333" margin={{bottom: "-1%"}}>What Gas Station?</Heading>
+                        <Heading level="3" size="small" color="#333333">Tired of having gasoline prices wildly fluctuate? Electricle vehicle chargers are becoming more ubiquitous across the United States, and the ability to charge from home is game changing! </Heading>
+                    </Box>
+                </Box>
             </Grid>
         </Grommet>
-
-        <Footer />
         </div>
     )
 }

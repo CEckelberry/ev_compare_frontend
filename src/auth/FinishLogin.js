@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation  } from "react-router-dom";
 import { Grommet, Box, Grid } from 'grommet';
-import CollapsableNav from "../navbar/CollapsableNav";
-import {Footer} from "../footer/Footer";
 
 function FinishLogin ({ login }) {
 
@@ -35,7 +33,6 @@ function FinishLogin ({ login }) {
 
     return(        
         <div className="FinishLogin">
-            <CollapsableNav />
             <Grommet background="#F8F8F8">
                 <Grid
                 fill
@@ -45,9 +42,7 @@ function FinishLogin ({ login }) {
                     <Box direction="row" align="center" justify="center">
                     </Box>
                 </Grid>
-                
             </Grommet>
-            <Footer />
         </div>
   )
 }

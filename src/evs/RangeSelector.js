@@ -4,10 +4,8 @@ import { render } from 'react-dom';
 import { Grommet, Box, RangeSelector, Stack, Text } from 'grommet';
 import { grommet } from 'grommet/themes';
 
-const RANGE_MIN = 0;
-const RANGE_MAX = 100;
 
-function Thin({ initialRange = [0, 100], label, character, RANGE_MIN = 0, RANGE_MAX=100}) {
+function Thin({ initialRange = [0, 100], label, character, RANGE_MIN = 0, RANGE_MAX=100, getCarRange, getPriceRange}) {
   const [range, setRange] = useState(initialRange);
 
   return (
@@ -22,7 +20,7 @@ function Thin({ initialRange = [0, 100], label, character, RANGE_MIN = 0, RANGE_
           step={1}
           values={range}
           onChange={nextRange => {
-            setRange(nextRange);
+            {RANGE_MAX === 100 ? getPriceRange(nextRange) : getCarRange(nextRange)};
           }}
         />
       </Stack>

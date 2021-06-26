@@ -1,0 +1,13 @@
+#finalimage {
+	background-size: cover !important;
+}
+
+#finalimage::before {
+	padding-top: 10%;
+	height: 530px;
+	background-size: cover !important;
+}
+
+/* .fIuZoc:before {
+	background-size: contain !important;
+} */

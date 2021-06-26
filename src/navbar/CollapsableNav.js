@@ -21,7 +21,7 @@ const theme = {
     },
   };
 
-const CollapsableNav = () => (
+const CollapsableNav = ({ logout }) => (
   <Grommet theme={theme}>
     <Header background="brand" pad="small" border={{ size: "small", side:"bottom", color:"#555555" }}>
       <Box direction="row" align="center">
@@ -42,7 +42,7 @@ const CollapsableNav = () => (
                 { label: 'CompareList', onClick: () => {} , href: "/evs/compare"},
                 { label: 'Profile', onClick: () => {}, href: "/profile"},
                 { label: 'AboutUs', onClick: () => {}, href: "/aboutus"},
-                { label: 'Logout', onClick: () => {}, href: "/logout"},
+                { label: 'Logout', onClick: () => {logout()}, href: "/logout"},
               ]}
               margin="small"
               dropBackground="#6FFFB0"
@@ -55,7 +55,7 @@ const CollapsableNav = () => (
               <NavLink id="RouterNavLink"  to="/aboutus" label="About Us" style={{color: '#EDEDED', textDecoration: 'none' , fontWeight: 'bold'}} activeStyle={{color: '#EDEDED', textDecoration: 'bold'}}>About&nbsp;Us</NavLink>
               <Menu 
               items={[ {label: 'Profile', onClick: () => {} , href: "/profile",},
-                       {label: 'Logout', onClick: () => {} , href: "/logout",}
+                       {label: 'Logout', onClick: () => {logout()} , href: "/logout",}
               ]}
               margin={{right: "30%",}}
               dropAlign={{left: "left", top: "top"}}

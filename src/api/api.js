@@ -43,6 +43,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
   
   /** Get evs (filtered by term if not undefined) */
   static async getEVs(make, model, price, range, body_type) {
+    console.log('Insaide getEVs api.js__ make: ', make)
     let res = await this.request("evs", {make, model, price, range, body_type});
     return res.evs;
   }
@@ -50,7 +51,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
    /** Get details on a EV by handle. */ 
   static async getEV(id) {
     let res = await this.request(`evs/${id}`);
-    return res.company;
+    return res.ev;
   }
 
   /** Get token for login from username, password. */

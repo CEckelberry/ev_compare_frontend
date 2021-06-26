@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import UserContext from "../auth/UserContext";
-import CollapsableNav from "../navbar/CollapsableNav";
-import {Footer} from "../footer/Footer";
 
 /** "Higher-Order Component" for private routes.
  *
@@ -27,11 +25,9 @@ function PrivateRoute({ exact, path, children }) {
 
   return (
       <>
-      <CollapsableNav></CollapsableNav>
       <Route exact={exact} path={path}>
         {children}
       </Route>
-      <Footer />
       </>
   );
 }

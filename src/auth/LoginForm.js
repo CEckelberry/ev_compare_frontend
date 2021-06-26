@@ -1,7 +1,5 @@
 import React from "react";
 import { Grommet, Box, Button, Grid, Anchor} from 'grommet';
-import CollapsableNav from "../navbar/CollapsableNav";
-import {Footer} from "../footer/Footer"
 import { Login as LoginIcon }  from "grommet-icons";
 
 /** Login form.
@@ -36,7 +34,6 @@ function LoginForm() {
     return(
         
         <div className="LoginForm">
-            <CollapsableNav />
             <Grommet background="#F8F8F8" theme={theme}>
                 <Grid
                 fill
@@ -51,7 +48,6 @@ function LoginForm() {
                 </Grid>
                 
             </Grommet>
-            <Footer />
         </div>
   )
 
